@@ -18,7 +18,8 @@ interface FormData {
   flightBudget: number;
   suggestedStayNights: number;
   dreamRank: number;
-  travelMonth: Month;
+  travelMonthStart: Month;
+  travelMonthEnd: Month;
   visa: VisaRequirement;
 }
 
@@ -30,7 +31,8 @@ const EMPTY: FormData = {
   flightBudget: 800,
   suggestedStayNights: 7,
   dreamRank: 1,
-  travelMonth: 'January',
+  travelMonthStart: 'January',
+  travelMonthEnd: 'February',
   visa: 'not_required',
 };
 
@@ -43,7 +45,8 @@ function destToForm(d: Destination): FormData {
     flightBudget: d.flightBudget,
     suggestedStayNights: d.suggestedStayNights,
     dreamRank: d.dreamRank,
-    travelMonth: d.travelMonth,
+    travelMonthStart: d.travelMonthStart,
+    travelMonthEnd: d.travelMonthEnd,
     visa: d.visa,
   };
 }
@@ -68,10 +71,14 @@ function VibeSection({ isAddMode, editingDest, onSummaryGenerated }: VibeSection
 
   async function handleGenerate() {
     if (!editingDest) return;
+    const window =
+      editingDest.travelMonthStart === editingDest.travelMonthEnd
+        ? editingDest.travelMonthStart
+        : `${editingDest.travelMonthStart}–${editingDest.travelMonthEnd}`;
     const text = await generate({
       name: editingDest.name,
       country: editingDest.country,
-      travelMonth: editingDest.travelMonth,
+      travelMonth: window,
     });
     if (text) onSummaryGenerated(text);
   }
@@ -158,7 +165,8 @@ export function DestinationModal() {
         flightBudget: form.flightBudget,
         suggestedStayNights: form.suggestedStayNights,
         dreamRank: form.dreamRank,
-        travelMonth: form.travelMonth,
+        travelMonthStart: form.travelMonthStart,
+        travelMonthEnd: form.travelMonthEnd,
         visa: form.visa,
         basePrice: form.flightBudget, // simulate prices from the budget center point
       };
@@ -173,7 +181,8 @@ export function DestinationModal() {
         flightBudget: form.flightBudget,
         suggestedStayNights: form.suggestedStayNights,
         dreamRank: form.dreamRank,
-        travelMonth: form.travelMonth,
+        travelMonthStart: form.travelMonthStart,
+        travelMonthEnd: form.travelMonthEnd,
         visa: form.visa,
       };
       dispatch({ type: 'UPDATE_DESTINATION', destination: updated });
@@ -328,23 +337,32 @@ export function DestinationModal() {
               <span className={styles.hint}>1 = highest priority</span>
             </div>
 
-            {/* Travel window */}
-            <div className={styles.field}>
-              <label className={styles.label} htmlFor="modal-month">
-                Travel window
-              </label>
-              <select
-                id="modal-month"
-                className={styles.select}
-                value={form.travelMonth}
-                onChange={(e) => set('travelMonth', e.target.value as Month)}
-              >
-                {MONTHS.map((m) => (
-                  <option key={m} value={m}>
-                    {m}
-                  </option>
-                ))}
-              </select>
+            {/* Travel window — start to end month */}
+            <div className={`${styles.field} ${styles.full}`}>
+              <label className={styles.label}>Travel window</label>
+              <div className={styles.monthRange}>
+                <select
+                  className={styles.select}
+                  value={form.travelMonthStart}
+                  aria-label="Travel window start month"
+                  onChange={(e) => set('travelMonthStart', e.target.value as Month)}
+                >
+                  {MONTHS.map((m) => (
+                    <option key={m} value={m}>{m}</option>
+                  ))}
+                </select>
+                <span className={styles.rangeSep}>to</span>
+                <select
+                  className={styles.select}
+                  value={form.travelMonthEnd}
+                  aria-label="Travel window end month"
+                  onChange={(e) => set('travelMonthEnd', e.target.value as Month)}
+                >
+                  {MONTHS.map((m) => (
+                    <option key={m} value={m}>{m}</option>
+                  ))}
+                </select>
+              </div>
             </div>
 
             {/* Visa requirement */}

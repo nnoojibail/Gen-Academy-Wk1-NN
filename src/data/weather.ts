@@ -51,9 +51,27 @@ const MONTH_INDEX: Record<Month, number> = Object.fromEntries(
   MONTHS.map((m, i) => [m, i]),
 ) as Record<Month, number>;
 
-/** Get the hi/lo reading for an airport in a given travel month. */
-export function getWeather(airportCode: string, month: Month): WeatherReading {
+/** Get the hi/lo for a single month (internal helper). */
+function getMonthWeather(airportCode: string, month: Month): WeatherReading {
   const normals = NORMALS_BY_AIRPORT[airportCode.toUpperCase()];
   if (!normals) return FALLBACK;
   return normals[MONTH_INDEX[month]] ?? FALLBACK;
+}
+
+/**
+ * Get the averaged hi/lo across a travel window (start–end months, inclusive).
+ * If both months are the same, returns that month's reading directly.
+ */
+export function getWeather(
+  airportCode: string,
+  startMonth: Month,
+  endMonth: Month,
+): WeatherReading {
+  const a = getMonthWeather(airportCode, startMonth);
+  if (startMonth === endMonth) return a;
+  const b = getMonthWeather(airportCode, endMonth);
+  return {
+    hi: Math.round((a.hi + b.hi) / 2),
+    lo: Math.round((a.lo + b.lo) / 2),
+  };
 }

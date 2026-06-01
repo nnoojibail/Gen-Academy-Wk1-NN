@@ -36,7 +36,11 @@ export function DestinationRow({
   const status = getBudgetStatus(currentPrice, destination.flightBudget);
   const delta = budgetDelta(currentPrice, destination.flightBudget);
   const inBudget = isWithinBudget(currentPrice, destination.flightBudget);
-  const weather = getWeather(destination.airportCode, destination.travelMonth);
+  const weather = getWeather(
+    destination.airportCode,
+    destination.travelMonthStart,
+    destination.travelMonthEnd,
+  );
   const route = routeString(departureCode, destination);
   const bookLabel = BOOKING_LABEL[getBookingWindow(status)];
 
@@ -85,10 +89,15 @@ export function DestinationRow({
         <BudgetGauge current={currentPrice} budget={destination.flightBudget} status={status} />
       </td>
 
-      {/* Weather — hi/lo for travel month */}
+      {/* Weather — averaged hi/lo across travel window */}
       <td className={styles.td}>
         <div className={styles.weatherHiLo}>{weather.hi}° / {weather.lo}°</div>
-        <div className={styles.weatherMonth}>{destination.travelMonth.slice(0, 3)}</div>
+        <div className={styles.weatherMonth}>
+          {destination.travelMonthStart.slice(0, 3)}
+          {destination.travelMonthStart !== destination.travelMonthEnd
+            ? `–${destination.travelMonthEnd.slice(0, 3)}`
+            : ''}
+        </div>
       </td>
 
       {/* Visa */}

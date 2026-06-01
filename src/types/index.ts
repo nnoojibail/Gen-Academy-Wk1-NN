@@ -49,8 +49,10 @@ export interface Destination {
   suggestedStayNights: number;
   /** Dream rank / priority — 1 is highest. Drag-to-reorder updates this. */
   dreamRank: number;
-  /** Preferred travel month; drives the weather reading shown in the table. */
-  travelMonth: Month;
+  /** Start of the preferred travel window (inclusive). */
+  travelMonthStart: Month;
+  /** End of the preferred travel window (inclusive). Weather is averaged across the range. */
+  travelMonthEnd: Month;
   visa: VisaRequirement;
   /** Mock pricing center point in USD. */
   basePrice: number;

@@ -114,6 +114,23 @@
   padding-right: 28px;
 }
 
+.monthRange {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.monthRange .select {
+  flex: 1;
+}
+
+.rangeSep {
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
 .hint {
   font-size: var(--fs-xs);
   color: var(--text-faint);
