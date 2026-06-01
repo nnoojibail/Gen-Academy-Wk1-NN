@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm --version)",
+      "Read(//Users/nandita/.volta/**)",
+      "Read(//Users/nandita/**)",
+      "Bash(curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh)",
+      "Bash(bash)",
+      "Bash(pkill -f \"vite\")",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(curl -s http://localhost:5173/api/vibe -X POST -H \"Content-Type: application/json\" -d '{\"name\":\"Beijing\",\"country\":\"China\",\"travelMonth\":\"September\"}')"
+    ]
+  }
+}

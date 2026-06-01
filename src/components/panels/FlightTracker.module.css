@@ -1,0 +1,104 @@
+.card {
+  border: var(--border);
+  border-radius: var(--radius-card);
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+}
+
+.cardTitle {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 14px 16px 0;
+}
+
+/* ── Destination block ── */
+.destBlock {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 16px 12px;
+}
+
+.destName {
+  font-size: var(--fs-md);
+  font-weight: var(--fw-medium);
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.destCountry {
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.destRoute {
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+  margin-top: 4px;
+}
+
+/* ── Price block ── */
+.divider {
+  border: none;
+  border-top: var(--border);
+  margin: 0;
+}
+
+.priceBlock {
+  padding: 12px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.priceRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.priceLabel {
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.priceValue {
+  font-size: var(--fs-base);
+  font-weight: var(--fw-medium);
+  color: var(--text);
+}
+
+.deltaUnder { font-size: var(--fs-sm); color: var(--delta-under); }
+.deltaOver  { font-size: var(--fs-sm); color: var(--delta-over); }
+.deltaEven  { font-size: var(--fs-sm); color: var(--text-muted); }
+
+.hint {
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+  font-style: italic;
+  padding: 0 16px 14px;
+  margin-top: -4px;
+}
+
+/* ── Empty state ── */
+.empty {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px;
+}
+
+.emptyText {
+  font-size: var(--fs-sm);
+  color: var(--text-faint);
+  text-align: center;
+}

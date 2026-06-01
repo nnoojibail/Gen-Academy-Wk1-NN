@@ -1,0 +1,8 @@
+.panels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding: 16px 24px 24px;
+  border-top: var(--border);
+  flex-shrink: 0;
+}

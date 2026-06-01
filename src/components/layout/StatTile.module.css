@@ -1,0 +1,77 @@
+.tile {
+  padding: 14px 16px;
+  border: var(--border);
+  border-radius: var(--radius-card);
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+  min-height: 90px;
+}
+
+.tileInBudget {
+  background: var(--tile-in-budget-bg);
+  border-color: var(--tile-in-budget-border);
+}
+
+.label {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.labelInBudget {
+  color: var(--tile-in-budget-text);
+  opacity: 0.75;
+}
+
+.value {
+  font-size: var(--fs-md);
+  font-weight: var(--fw-medium);
+  color: var(--text);
+  line-height: 1.25;
+}
+
+.valueInBudget {
+  color: var(--tile-in-budget-text);
+}
+
+.sub {
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  line-height: 1.2;
+}
+
+.subInBudget {
+  color: var(--tile-in-budget-text);
+  opacity: 0.8;
+}
+
+.dots {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 5px;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.dotFilled {
+  background: var(--tile-in-budget-text);
+}
+
+.dotEmpty {
+  background: var(--border-color-strong);
+}

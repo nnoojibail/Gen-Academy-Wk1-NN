@@ -1,0 +1,79 @@
+.card {
+  border: var(--border);
+  border-radius: var(--radius-card);
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+}
+
+.cardTitle {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 14px 16px 10px;
+  border-bottom: var(--border);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 16px;
+  border-bottom: var(--border);
+  cursor: pointer;
+  transition: background 80ms ease;
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.item:hover {
+  background: var(--surface-2);
+}
+
+.itemSelected {
+  background: var(--surface-2);
+}
+
+.destInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.destName {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.2;
+}
+
+.destCountry {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  margin-top: 1px;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+  flex-shrink: 0;
+}
+
+.price {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--text);
+}

@@ -1,0 +1,72 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--fw-medium);
+  line-height: 1;
+  border: 0.5px solid transparent;
+  white-space: nowrap;
+}
+
+/* ── Status badges ── */
+.statusBadge {
+  padding: 3px 8px;
+  border-radius: var(--radius-el);
+  font-size: var(--fs-xs);
+}
+
+.deal {
+  background: var(--status-deal-bg);
+  color: var(--status-deal-text);
+  border-color: var(--status-deal-text);
+}
+
+.close {
+  background: var(--status-close-bg);
+  color: var(--status-close-text);
+  border-color: var(--status-close-text);
+}
+
+.over {
+  background: var(--status-over-bg);
+  color: var(--status-over-text);
+  border-color: var(--status-over-text);
+}
+
+.watching {
+  background: var(--status-watching-bg);
+  color: var(--status-watching-text);
+  border-color: var(--status-watching-text);
+}
+
+/* ── Rank badges ── */
+.rankBadge {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  font-size: 11px;
+}
+
+.rankDefault {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  border-color: var(--border-color);
+}
+
+.rankGold {
+  background: var(--rank-gold-bg);
+  color: var(--rank-gold-text);
+  border-color: var(--rank-gold-text);
+}
+
+.rankSilver {
+  background: #f2f3f4;
+  color: var(--medal-silver);
+  border-color: var(--medal-silver);
+}
+
+.rankBronze {
+  background: #f5ede5;
+  color: var(--medal-bronze);
+  border-color: var(--medal-bronze);
+}

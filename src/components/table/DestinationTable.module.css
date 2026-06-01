@@ -1,0 +1,82 @@
+.wrapper {
+  flex: 1;
+  padding: 0 24px 8px;
+}
+
+.scroll {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--fs-sm);
+}
+
+.thead {
+  /* sticky header reserved for polish phase once overflow context is sorted */
+}
+
+.th {
+  padding: 10px 12px;
+  text-align: left;
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: var(--border);
+  white-space: nowrap;
+  background: var(--surface);
+}
+
+.thRight {
+  text-align: right;
+}
+
+.thCenter {
+  text-align: center;
+}
+
+.empty {
+  padding: 40px 12px;
+  text-align: center;
+  color: var(--text-faint);
+  font-size: var(--fs-sm);
+}
+
+/* Table footer — add destination */
+.addRow {
+  padding: 0;
+  border-top: var(--border);
+}
+
+.addBtn {
+  display: block;
+  width: 100%;
+  padding: 10px 12px;
+  text-align: left;
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: background 80ms ease, color 80ms ease;
+}
+
+.addBtn:hover {
+  background: var(--surface-2);
+  color: var(--text);
+}
+
+/* Column widths */
+.colRank     { width: 44px; }
+.colDest     { width: 220px; }
+.colStay     { width: 116px; }
+.colStatus   { width: 96px; }
+.colPrice    { width: 140px; }
+.colGauge    { width: 160px; }
+.colWeather  { width: 96px; }
+.colVisa     { width: 132px; }
+.colBook     { width: 96px; }
+.colActions  { width: 72px; }

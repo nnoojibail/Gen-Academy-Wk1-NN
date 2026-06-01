@@ -1,0 +1,111 @@
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 0;
+  border-bottom: var(--border);
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.rowDragging {
+  opacity: 0.45;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.grip {
+  color: var(--text-faint);
+  cursor: grab;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  touch-action: none;
+  padding: 2px;
+  border-radius: 4px;
+}
+
+.grip:hover {
+  color: var(--text-muted);
+}
+
+.name {
+  flex: 1;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--text);
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rowActions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.iconBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: var(--radius-el);
+  border: var(--border);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: background 100ms ease, color 100ms ease;
+  background: none;
+  padding: 0;
+}
+
+.iconBtn:hover {
+  background: var(--surface-2);
+  color: var(--text);
+}
+
+.deleteBtn:hover {
+  background: var(--status-over-bg);
+  color: var(--status-over-text);
+  border-color: var(--status-over-text);
+}
+
+/* Inputs sit below the top row, indented to align with the name */
+.inputs {
+  display: flex;
+  gap: 8px;
+  padding-left: 55px; /* grip(20) + rank(22) + gaps(13) */
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+  min-width: 0;
+}
+
+.inputLabel {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  line-height: 1;
+}
+
+.input {
+  padding: 6px 8px;
+  border: var(--border-strong);
+  border-radius: var(--radius-el);
+  background: var(--bg);
+  color: var(--text);
+  font-size: var(--fs-sm);
+  width: 100%;
+}

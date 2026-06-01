@@ -1,0 +1,29 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 80px;
+}
+
+.track {
+  height: 4px;
+  background: var(--gauge-track);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 300ms ease;
+}
+
+.fillGreen  { background: var(--gauge-green); }
+.fillAmber  { background: var(--gauge-amber); }
+.fillRed    { background: var(--gauge-red); }
+
+.label {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  line-height: 1;
+}

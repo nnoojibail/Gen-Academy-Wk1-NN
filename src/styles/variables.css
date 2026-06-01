@@ -1,0 +1,132 @@
+/* ───────────────────────────────────────────────────────────────────────────
+   Design tokens — colors, radii, typography, borders.
+   All colors are exposed as CSS variables so light/dark mode swap cleanly.
+   Exact hex values from the design spec are used for the light theme; dark-mode
+   overrides keep the same hues at darker, legible values.
+   ─────────────────────────────────────────────────────────────────────────── */
+
+:root {
+  /* Typography — system sans, weights 400 / 500 only */
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+  --fw-body: 400;
+  --fw-medium: 500;
+
+  --fs-xs: 11px;
+  --fs-sm: 12px;
+  --fs-base: 14px;
+  --fs-md: 16px;
+  --fs-lg: 20px;
+  --fs-xl: 26px;
+
+  /* Radii */
+  --radius-el: 8px; /* inputs, badges, buttons */
+  --radius-card: 12px; /* cards, panels, drawer, modal */
+
+  /* Borders — 0.5px hairlines with low-opacity tokens */
+  --border-color: rgba(0, 0, 0, 0.12);
+  --border-color-strong: rgba(0, 0, 0, 0.2);
+  --border: 0.5px solid var(--border-color);
+  --border-strong: 0.5px solid var(--border-color-strong);
+
+  /* Neutral surfaces & text (light) */
+  --bg: #f7f7f6;
+  --surface: #ffffff;
+  --surface-2: #f1f1ef; /* hover / secondary background */
+  --text: #1c1c1a;
+  --text-muted: #6b6b66;
+  --text-faint: #9a9a93;
+
+  /* Focus ring */
+  --focus-ring: 0 0 0 2px rgba(24, 95, 165, 0.45);
+
+  /* Backdrop for drawer / modal */
+  --backdrop: rgba(20, 20, 18, 0.32);
+
+  /* In-budget row tint */
+  --row-tint-in-budget: #eaf3de18;
+
+  /* Status badges */
+  --status-deal-bg: #eaf3de;
+  --status-deal-text: #3b6d11;
+  --status-close-bg: #faeeda;
+  --status-close-text: #854f0b;
+  --status-over-bg: #fcebeb;
+  --status-over-text: #a32d2d;
+  --status-watching-bg: #e6f1fb;
+  --status-watching-text: #185fa5;
+
+  /* Suggested-stay pill */
+  --pill-stay-bg: #e6f1fb;
+  --pill-stay-text: #185fa5;
+  --pill-stay-border: #b5d4f4;
+
+  /* Budget gauge fills */
+  --gauge-green: #639922;
+  --gauge-amber: #ba7517;
+  --gauge-red: #e24b4a;
+  --gauge-track: rgba(0, 0, 0, 0.08);
+
+  /* Within-budget stat tile */
+  --tile-in-budget-bg: #eaf3de;
+  --tile-in-budget-border: #c0dd97;
+  --tile-in-budget-text: #27500a;
+
+  /* Gold rank badge (rank #1) */
+  --rank-gold-bg: #faeeda;
+  --rank-gold-text: #854f0b;
+
+  /* Delta text */
+  --delta-under: #3b6d11;
+  --delta-over: #a32d2d;
+
+  /* Medal accents (dream ranking) */
+  --medal-gold: #c79a3a;
+  --medal-silver: #9aa0a6;
+  --medal-bronze: #b07a45;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --border-color: rgba(255, 255, 255, 0.14);
+    --border-color-strong: rgba(255, 255, 255, 0.24);
+
+    --bg: #161714;
+    --surface: #1f201d;
+    --surface-2: #2a2b27;
+    --text: #ececea;
+    --text-muted: #a6a69f;
+    --text-faint: #76766f;
+
+    --focus-ring: 0 0 0 2px rgba(120, 178, 235, 0.55);
+    --backdrop: rgba(0, 0, 0, 0.55);
+
+    --row-tint-in-budget: #6399221f;
+
+    /* Status badges — darker tinted backgrounds, lightened text */
+    --status-deal-bg: #233018;
+    --status-deal-text: #a9d178;
+    --status-close-bg: #322714;
+    --status-close-text: #e3b773;
+    --status-over-bg: #361c1c;
+    --status-over-text: #e89292;
+    --status-watching-bg: #18293a;
+    --status-watching-text: #8fc0ef;
+
+    --pill-stay-bg: #18293a;
+    --pill-stay-text: #8fc0ef;
+    --pill-stay-border: #2c4a68;
+
+    --gauge-track: rgba(255, 255, 255, 0.12);
+
+    --tile-in-budget-bg: #233018;
+    --tile-in-budget-border: #3c5a22;
+    --tile-in-budget-text: #a9d178;
+
+    --rank-gold-bg: #322714;
+    --rank-gold-text: #e3b773;
+
+    --delta-under: #a9d178;
+    --delta-over: #e89292;
+  }
+}

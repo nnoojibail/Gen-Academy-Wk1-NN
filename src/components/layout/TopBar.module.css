@@ -1,0 +1,72 @@
+.topBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  height: 68px;
+  background: var(--surface);
+  border-bottom: var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  flex-shrink: 0;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.title {
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-medium);
+  color: var(--text);
+  line-height: 1;
+}
+
+.subtitle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  border: var(--border);
+  border-radius: var(--radius-el);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--text);
+  background: var(--surface);
+  cursor: pointer;
+  transition: background 120ms ease;
+  line-height: 1;
+}
+
+.btn:hover {
+  background: var(--surface-2);
+}
+
+.btnPrimary {
+  background: var(--text);
+  color: var(--surface);
+  border-color: var(--text);
+}
+
+.btnPrimary:hover {
+  opacity: 0.88;
+  background: var(--text);
+}

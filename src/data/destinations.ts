@@ -1,0 +1,73 @@
+import type { Destination } from '../types';
+
+/**
+ * Default seed destinations (used when localStorage is empty). All flight
+ * durations / prices are from the default departure airport, SFO.
+ */
+export const DEFAULT_DESTINATIONS: Destination[] = [
+  {
+    id: 'beijing-cn',
+    name: 'Beijing',
+    country: 'China',
+    airportCode: 'PEK',
+    flightDuration: '~12h',
+    flightBudget: 900,
+    suggestedStayNights: 7,
+    dreamRank: 1,
+    travelMonth: 'September',
+    visa: 'required',
+    basePrice: 850,
+  },
+  {
+    id: 'bali-id',
+    name: 'Bali',
+    country: 'Indonesia',
+    airportCode: 'DPS',
+    flightDuration: '~19h',
+    flightBudget: 1100,
+    suggestedStayNights: 8,
+    dreamRank: 2,
+    travelMonth: 'May',
+    visa: 'visa_on_arrival',
+    basePrice: 1050,
+  },
+  {
+    id: 'patagonia-cl',
+    name: 'Patagonia',
+    country: 'Chile',
+    airportCode: 'PUQ',
+    flightDuration: '~16h',
+    flightBudget: 1400,
+    suggestedStayNights: 9,
+    dreamRank: 3,
+    travelMonth: 'January',
+    visa: 'not_required',
+    basePrice: 1350,
+  },
+  {
+    id: 'phuket-th',
+    name: 'Phuket',
+    country: 'Thailand',
+    airportCode: 'HKT',
+    flightDuration: '~19h',
+    flightBudget: 1000,
+    suggestedStayNights: 7,
+    dreamRank: 4,
+    travelMonth: 'November',
+    visa: 'not_required',
+    basePrice: 980,
+  },
+  {
+    id: 'hcmc-vn',
+    name: 'Ho Chi Minh City',
+    country: 'Vietnam',
+    airportCode: 'SGN',
+    flightDuration: '~18h',
+    flightBudget: 950,
+    suggestedStayNights: 6,
+    dreamRank: 5,
+    travelMonth: 'February',
+    visa: 'required',
+    basePrice: 920,
+  },
+];

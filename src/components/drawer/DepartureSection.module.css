@@ -1,0 +1,56 @@
+.input {
+  width: 100%;
+  padding: 8px 10px;
+  border: var(--border-strong);
+  border-radius: var(--radius-el);
+  background: var(--bg);
+  color: var(--text);
+  font-size: var(--fs-sm);
+  display: block;
+}
+
+.helpText {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  margin-top: 5px;
+  margin-bottom: 10px;
+  min-height: 15px;
+  line-height: 1;
+}
+
+.helpUnknown {
+  color: var(--status-over-text);
+}
+
+.chips {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.chip {
+  padding: 4px 10px;
+  border: var(--border);
+  border-radius: var(--radius-el);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  color: var(--text);
+  background: var(--surface);
+  cursor: pointer;
+  transition: background 100ms ease;
+}
+
+.chip:hover {
+  background: var(--surface-2);
+}
+
+.chipActive {
+  background: var(--text);
+  color: var(--surface);
+  border-color: var(--text);
+}
+
+.chipActive:hover {
+  opacity: 0.85;
+  background: var(--text);
+}
