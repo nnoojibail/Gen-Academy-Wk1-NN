@@ -1,9 +1,16 @@
 import { IconGripVertical, IconPencil, IconShield } from '@tabler/icons-react';
 import type { Destination, VisaRequirement } from '../../types';
 import { getBudgetStatus, isWithinBudget, budgetDelta } from '../../utils/budgetStatus';
-import { getBookingWindow, BOOKING_LABEL } from '../../utils/bookingWindow';
 import { formatUSD, formatDelta, VISA_LABEL } from '../../utils/format';
 import { routeString } from '../../utils/routeString';
+import {
+  getTravelStartYear,
+  getTravelEndYear,
+  formatTravelWindow,
+  getBuyingWindow,
+  formatBuyingWindow,
+  isBuyNow,
+} from '../../utils/travelWindow';
 import { getWeather } from '../../data/weather';
 import { RankBadge, StatusBadge } from '../ui/Badge';
 import { StayPill } from '../ui/Pill';
@@ -33,16 +40,39 @@ export function DestinationRow({
   onClick,
   onEdit,
 }: DestinationRowProps) {
+  const today = new Date();
   const status = getBudgetStatus(currentPrice, destination.flightBudget);
   const delta = budgetDelta(currentPrice, destination.flightBudget);
   const inBudget = isWithinBudget(currentPrice, destination.flightBudget);
+
   const weather = getWeather(
     destination.airportCode,
     destination.travelMonthStart,
     destination.travelMonthEnd,
   );
   const route = routeString(departureCode, destination);
-  const bookLabel = BOOKING_LABEL[getBookingWindow(status)];
+
+  // Travel window with resolved years
+  const travelStartYear = getTravelStartYear(destination.travelMonthStart, today);
+  const travelEndYear = getTravelEndYear(
+    destination.travelMonthStart,
+    travelStartYear,
+    destination.travelMonthEnd,
+  );
+  const travelWindowStr = formatTravelWindow(
+    destination.travelMonthStart,
+    travelStartYear,
+    destination.travelMonthEnd,
+    travelEndYear,
+  );
+
+  // Buying window — 4–3 months before travel window start
+  const { start: buyStart, end: buyEnd } = getBuyingWindow(
+    destination.travelMonthStart,
+    travelStartYear,
+  );
+  const buyingWindowStr = formatBuyingWindow(buyStart, buyEnd);
+  const buyNow = isBuyNow(buyStart, today);
 
   const deltaClass =
     delta < 0 ? styles.deltaUnder : delta > 0 ? styles.deltaOver : styles.deltaEven;
@@ -89,6 +119,19 @@ export function DestinationRow({
         <BudgetGauge current={currentPrice} budget={destination.flightBudget} status={status} />
       </td>
 
+      {/* Travel Window */}
+      <td className={styles.td}>
+        <span className={styles.windowText}>{travelWindowStr}</span>
+      </td>
+
+      {/* Buying Window */}
+      <td className={styles.td}>
+        <div className={styles.buyingWindow}>
+          {buyNow && <span className={styles.buyNowBadge}>Buy now</span>}
+          <span className={styles.buyingDate}>{buyingWindowStr}</span>
+        </div>
+      </td>
+
       {/* Weather — averaged hi/lo across travel window */}
       <td className={styles.td}>
         <div className={styles.weatherHiLo}>{weather.hi}° / {weather.lo}°</div>
@@ -106,11 +149,6 @@ export function DestinationRow({
           <IconShield size={13} stroke={1.5} />
           {VISA_LABEL[destination.visa]}
         </div>
-      </td>
-
-      {/* Book by */}
-      <td className={styles.td}>
-        <span className={styles.bookBy}>{bookLabel}</span>
       </td>
 
       {/* Actions — stop propagation so clicks don't select the row */}

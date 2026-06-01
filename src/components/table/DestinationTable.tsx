@@ -19,9 +19,10 @@ export function DestinationTable() {
           <col className={styles.colStatus} />
           <col className={styles.colPrice} />
           <col className={styles.colGauge} />
+          <col className={styles.colWindow} />
+          <col className={styles.colBuying} />
           <col className={styles.colWeather} />
           <col className={styles.colVisa} />
-          <col className={styles.colBook} />
           <col className={styles.colActions} />
         </colgroup>
         <thead className={styles.thead}>
@@ -32,16 +33,17 @@ export function DestinationTable() {
             <th className={styles.th}>Status</th>
             <th className={styles.th}>Flight price</th>
             <th className={styles.th}>Budget gauge</th>
+            <th className={styles.th}>Travel window</th>
+            <th className={styles.th}>Buying window</th>
             <th className={styles.th}>Weather</th>
             <th className={styles.th}>Visa</th>
-            <th className={styles.th}>Book by</th>
             <th className={`${styles.th} ${styles.thRight}`}>Actions</th>
           </tr>
         </thead>
         <tbody>
           {sorted.length === 0 ? (
             <tr>
-              <td colSpan={10} className={styles.empty}>
+              <td colSpan={11} className={styles.empty}>
                 No destinations yet — add one to get started.
               </td>
             </tr>
@@ -62,7 +64,7 @@ export function DestinationTable() {
         {sorted.length > 0 && (
           <tfoot>
             <tr>
-              <td colSpan={10} className={styles.addRow}>
+              <td colSpan={11} className={styles.addRow}>
                 <button className={styles.addBtn} onClick={() => openModal()}>
                   + Add destination
                 </button>

@@ -71,12 +71,13 @@
 
 /* Column widths */
 .colRank     { width: 44px; }
-.colDest     { width: 220px; }
-.colStay     { width: 116px; }
-.colStatus   { width: 96px; }
-.colPrice    { width: 140px; }
-.colGauge    { width: 160px; }
-.colWeather  { width: 96px; }
-.colVisa     { width: 132px; }
-.colBook     { width: 96px; }
+.colDest     { width: 200px; }
+.colStay     { width: 110px; }
+.colStatus   { width: 90px; }
+.colPrice    { width: 130px; }
+.colGauge    { width: 150px; }
+.colWindow   { width: 110px; }
+.colBuying   { width: 120px; }
+.colWeather  { width: 90px; }
+.colVisa     { width: 125px; }
 .colActions  { width: 72px; }

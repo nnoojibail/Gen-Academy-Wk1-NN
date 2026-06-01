@@ -82,11 +82,41 @@
 .visaOnArrival   { color: var(--status-close-text); }
 .visaRequired    { color: var(--status-over-text); }
 
-/* Book by cell */
-.bookBy {
+/* Travel Window cell */
+.windowText {
+  font-size: var(--fs-sm);
+  color: var(--text);
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+/* Buying Window cell */
+.buyingWindow {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.buyNowBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 7px;
+  border-radius: var(--radius-el);
   font-size: var(--fs-xs);
   font-weight: var(--fw-medium);
-  color: var(--text);
+  background: var(--status-deal-bg);
+  color: var(--status-deal-text);
+  border: 0.5px solid var(--status-deal-text);
+  white-space: nowrap;
+  line-height: 1.3;
+  align-self: flex-start;
+}
+
+.buyingDate {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  white-space: nowrap;
+  line-height: 1;
 }
 
 /* Actions cell */
